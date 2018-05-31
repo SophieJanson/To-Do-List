@@ -30,4 +30,31 @@ function toggleDone() {
   updateCounters();
 }
 
+function submitToDo() {
+  let inputField = document.getElementById('new-todo');
+  let task = inputField.value;
+  inputField.value = null;
+  createToDo(task);
+}
+
+function createToDo(newTask) {
+  if(!newTask) {
+    return;
+  }
+
+  let list = document.getElementById("todolist");
+  let taskNumber = nextTodoId();
+  let newListItem = document.createElement('li');
+  newListItem.className = 'todo';
+  newListItem.innerHTML = `
+  <input id="todo-${taskNumber}" type="checkbox" onchange="toggleDone.bind(this)()">
+  <label for="todo-${taskNumber}">${newTask}</label>
+  `;
+
+  list.prepend(newListItem);
+}
+
+function nextTodoId() {
+  return document.getElementsByClassName("todo").length + 1;
+}
 updateCounters();
