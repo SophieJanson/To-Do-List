@@ -48,6 +48,9 @@ ul#todolist .todo.completed label {
   color: #999;
 }
 
+ul#todolist li.completed:hover {
+  background-color: rgba(230, 0, 0, .6);
+}
 .footer {
   margin-top: 10px;
   background: #323232;

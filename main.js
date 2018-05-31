@@ -57,4 +57,13 @@ function createToDo(newTask) {
 function nextTodoId() {
   return document.getElementsByClassName("todo").length + 1;
 }
+
+function cleanUpDoneTodos() {
+  let completeds = document.getElementsByClassName('completed');
+  var list = document.getElementById("todolist");
+  for(var i = completeds.length; i > 0; i--) {
+    list.removeChild(completeds[i - 1]);
+  };
+  updateCounters();
+}
 updateCounters();
